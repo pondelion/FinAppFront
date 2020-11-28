@@ -1,5 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { bubble as BurgerMenu } from 'react-burger-menu';
+import CompanyProfile from '../../containers/pages/CompanyProfile'
+import { store } from '../../redux/Store'
 
 
 interface State {
@@ -105,23 +109,15 @@ const styles = {
 
 export class BubbleMenu extends React.Component<Props> {
 
-  private _SCENE_LIST: string[] = [
-    'Scene2', 'Scene3', 'Scene4'
-  ];
-
   render() {
-    const items = this._SCENE_LIST.map(e => {
-      return (
-        <a id={e} className="menu-item" href="/">{e}</a>
-      )
-    })
     return (
       <div className="App">
         <BurgerMenu
           styles={styles}
           onStateChange={this.onStateChange}
         >
-          {items}
+          <a id='company_list' className="menu-item" href="/#" onClick={e => {}}>Company List</a>
+          <a id='company_profile' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyProfile/></Provider>, document.getElementById('page')); e.preventDefault();}}>Company Profile</a>
         </BurgerMenu>
       </div>
     )

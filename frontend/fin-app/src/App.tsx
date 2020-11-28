@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { CompanyProfile } from './containers/pages/CompanyProfile'
+import CompanyProfile from './containers/pages/CompanyProfile'
 import { BubbleMenu } from './containers/organisms/Menu'
 //import { StockSelect } from './containers/organisms/StockSelect'
 
@@ -15,11 +15,19 @@ import { BubbleMenu } from './containers/organisms/Menu'
 class App extends React.Component {
   
   render() {
+    // return(
+    //   <div>
+    //     <BubbleMenu />
+    //     <CompanyProfile ticker={7203} handleOnSelectStock={(event)=>{console.log(event.value)}} />
+    //     <CompanyProfile ticker={8058} handleOnSelectStock={(event)=>{}} />
+    //   </div>
+    // );
     return(
       <div>
         <BubbleMenu />
-        <CompanyProfile ticker={7203} handleOnSelectStock={(event)=>{console.log(event.value)}} />
-        <CompanyProfile ticker={8058} handleOnSelectStock={(event)=>{}} />
+        <CompanyProfile />
+        <CompanyProfile />
+        <div id='page'></div>
       </div>
     );
   }

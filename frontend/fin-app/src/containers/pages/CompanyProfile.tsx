@@ -18,7 +18,7 @@ interface CompanyProfileHandler {
 
 type Props =  ValueProps & CompanyProfileHandler
 
-export class CompanyProfile extends React.Component<Props> {
+class CompanyProfile extends React.Component<Props> {
 
   //const dispatch = useDispatch()
   // const [ticker, /*setTicker*/] = useState<number>(7203)
@@ -32,15 +32,20 @@ export class CompanyProfile extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: State) => {
+interface IStateToProps {
+
+}
+
+const mapStateToProps = (state: State): ValueProps => {
+  console.log(state)
   return {
-      selectedStock: state.companyProfileState.selectedStock
+      ticker: state.companyProfileState.selectedStock
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch): CompanyProfileHandler => {
   return {
-  handleOnSelectStock: (event: any) => { console.log('handelew')/*dispatch(CompanyProfileActions.stockSelected(event))*/ }
+    handleOnSelectStock: (event: any) => { console.log(event.target.value)/*dispatch(CompanyProfileActions.stockSelected(event))*/ }
   }
 }
 

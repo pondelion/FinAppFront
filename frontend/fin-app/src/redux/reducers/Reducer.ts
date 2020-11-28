@@ -3,6 +3,6 @@ import { CompanyProfileReducer } from './CompanyProfileReducer'
 
 
 export const reducers = combineReducers({
-  companyProfileReducer: CompanyProfileReducer,
+  companyProfileState: CompanyProfileReducer,
   //anotherReducer: AnotherReducer
 })

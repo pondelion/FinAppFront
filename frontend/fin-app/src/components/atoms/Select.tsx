@@ -32,7 +32,7 @@ export class Select extends React.Component<Props> {
     return (
       <div>
         <SelectMaterialUI
-          labelId='label' id='select' value=''
+          labelId='label' id='select' autoWidth={true}
           onChange={ this.props.onChange }
         >
           { 
