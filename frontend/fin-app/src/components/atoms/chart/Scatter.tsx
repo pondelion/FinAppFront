@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 
 const StyledChart = styled.div`
-  position: fixed;
+  position: relative;
   top: 0;
-  right: 0;
+  left: 0;
   width: 30%;
 `
 
@@ -48,10 +48,23 @@ const scatterData = (points: Points) => {
 }
 
 
-export const ScatterChart: React.FC<Props> = props => {
-  return (
-    <StyledChart>
-      <Scatter data={scatterData(props.points)} redraw />
-    </StyledChart>
-  )
+// export const ScatterChart: React.FC<Props> = props => {
+//   return (
+//     <StyledChart>
+//       <Scatter data={scatterData(props.points)} redraw />
+//     </StyledChart>
+//   )
+// }
+export class ScatterChart extends React.Component<Props> {
+
+  render() {
+    return (
+      <div>
+        <StyledChart>
+          <Scatter data={scatterData(this.props.points)} redraw />
+        </StyledChart>
+      </div>
+    )
+  }
+
 }

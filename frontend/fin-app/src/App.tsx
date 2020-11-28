@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { CompanyProfile } from './containers/pages/CompanyProfile'
+import { BubbleMenu } from './containers/organisms/Menu'
+//import { StockSelect } from './containers/organisms/StockSelect'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// const App: React.FC = () => {
+//   return (
+//     <React.Fragment>
+//       <CompanyProfile />
+//     </React.Fragment>
+//   );
+// }
+class App extends React.Component {
+  
+  render() {
+    return(
+      <div>
+        <BubbleMenu />
+        <CompanyProfile ticker={7203} handleOnSelectStock={(event)=>{console.log(event.value)}} />
+        <CompanyProfile ticker={8058} handleOnSelectStock={(event)=>{}} />
+      </div>
+    );
+  }
+
 }
 
 export default App;

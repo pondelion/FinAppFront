@@ -4,7 +4,7 @@ import { CompanyProfileActions } from '../actions/CompanyProfileActions'
 
 
 export const CompanyProfileReducer = reducerWithInitialState(initialState)
-  .case(CompanyProfileActions.STOCK_SELECTED, (state, payload) => {
+  .case(CompanyProfileActions.stockSelected, (state, payload) => {
     return {
       ...state, ...payload.toString,
     }

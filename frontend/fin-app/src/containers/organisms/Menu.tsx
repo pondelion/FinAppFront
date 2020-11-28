@@ -1,6 +1,5 @@
 import React from 'react';
 import { bubble as BurgerMenu } from 'react-burger-menu';
-import { render } from 'react-dom';
 
 
 interface State {

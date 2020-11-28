@@ -7,18 +7,42 @@ export interface SelectProps {
   items: string[]
 }
 
-export type Props = SelectProps
+export interface SelectHandler {
+  onChange: (event: any) => void
+}
 
-export const Select: React.FC<Props> = props => {
-  return (
-    <React.Component>
-      <SelectMaterialUI labelId='label' id='select' value=''>
-        { 
-          props.items.map((item, idx) => {
-            return <MenuItem value={idx}>{item}</MenuItem>
-          })
-        }
-      </SelectMaterialUI>
-    </React.Component>
-  )
+export type Props = SelectProps & SelectHandler
+
+// export const Select: React.FC<Props> = props => {
+//   return (
+//     <React.Component>
+//       <SelectMaterialUI labelId='label' id='select' value=''>
+//         { 
+//           props.items.map((item, idx) => {
+//             return <MenuItem value={idx}>{item}</MenuItem>
+//           })
+//         }
+//       </SelectMaterialUI>
+//     </React.Component>
+//   )
+// }
+export class Select extends React.Component<Props> {
+
+  render() {
+    return (
+      <div>
+        <SelectMaterialUI
+          labelId='label' id='select' value=''
+          onChange={ this.props.onChange }
+        >
+          { 
+            this.props.items.map((item, idx) => {
+              return <MenuItem value={idx}>{item}</MenuItem>
+            })
+          }
+        </SelectMaterialUI>
+      </div>
+    )
+  }
+
 }
