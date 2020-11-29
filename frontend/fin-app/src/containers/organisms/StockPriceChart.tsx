@@ -5,6 +5,7 @@ import {
 } from '../../components/atoms/chart/Scatter'
 import { APIClient } from '../../utils/APIClient'
 import { StockPriceData } from '../../types/Stock'
+import { StyledChart } from '../../styles/Styles'
 
 
 export interface Props {
@@ -33,7 +34,9 @@ export class StockPriceChart extends React.Component<Props> {
   render() {
     return (
       <div>
-        <ScatterChart points={ getStockPriceData(this.props.ticker) } />
+        <StyledChart>
+          <ScatterChart points={ getStockPriceData(this.props.ticker) } />
+        </StyledChart>
       </div>
     )
   }

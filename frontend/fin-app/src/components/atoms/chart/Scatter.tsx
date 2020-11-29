@@ -1,14 +1,6 @@
 import React from 'react'
 import { Scatter } from 'react-chartjs-2';
-import styled from 'styled-components';
 
-
-const StyledChart = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 30%;
-`
 
 interface Point {
   x: number
@@ -60,9 +52,7 @@ export class ScatterChart extends React.Component<Props> {
   render() {
     return (
       <div>
-        <StyledChart>
-          <Scatter data={scatterData(this.props.points)} redraw />
-        </StyledChart>
+        <Scatter data={scatterData(this.props.points)} redraw />
       </div>
     )
   }
