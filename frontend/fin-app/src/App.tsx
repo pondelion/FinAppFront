@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CompanyProfile from './containers/pages/CompanyProfile'
+//import CompanyProfile from './containers/pages/CompanyProfile'
 import { BubbleMenu } from './containers/organisms/Menu'
 //import { StockSelect } from './containers/organisms/StockSelect'
 import { StyledCompanyProfilePage } from './styles/Styles'
@@ -27,9 +27,9 @@ class App extends React.Component {
       <div>
         <BubbleMenu />
         <StyledCompanyProfilePage>
-          <CompanyProfile />
-          <CompanyProfile />
-          <div id='page'></div>
+          {/* <CompanyProfile />
+          <CompanyProfile /> */}
+          <div id='main_page'></div>
         </StyledCompanyProfilePage>
       </div>
     );

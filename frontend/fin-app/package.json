@@ -12,6 +12,7 @@
     "@types/react-chartjs-2": "^2.5.7",
     "@types/react-dom": "16.9.4",
     "chart.js": "^2.9.4",
+    "material-ui-search-bar": "^1.0.0",
     "react": "^16.14.0",
     "react-burger-menu": "^2.9.2",
     "react-chartjs-2": "^2.11.1",

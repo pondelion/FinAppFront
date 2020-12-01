@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { bubble as BurgerMenu } from 'react-burger-menu';
 import CompanyProfile from '../../containers/pages/CompanyProfile'
+import CompanyList from '../../containers/pages/CompanyList'
 import { store } from '../../redux/Store'
 
 
@@ -116,8 +117,8 @@ export class BubbleMenu extends React.Component<Props> {
           styles={styles}
           onStateChange={this.onStateChange}
         >
-          <a id='company_list' className="menu-item" href="/#" onClick={e => {}}>Company List</a>
-          <a id='company_profile' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyProfile/></Provider>, document.getElementById('page')); e.preventDefault();}}>Company Profile</a>
+          <a id='company_list' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyList/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>Company List</a>
+          <a id='company_profile' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyProfile/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>Company Profile</a>
         </BurgerMenu>
       </div>
     )
