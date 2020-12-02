@@ -3,7 +3,7 @@ import './App.css';
 //import CompanyProfile from './containers/pages/CompanyProfile'
 import { BubbleMenu } from './containers/organisms/Menu'
 //import { StockSelect } from './containers/organisms/StockSelect'
-import { StyledCompanyProfilePage } from './styles/Styles'
+import { StyledMainPage } from './styles/Styles'
 
 
 // const App: React.FC = () => {
@@ -26,11 +26,11 @@ class App extends React.Component {
     return(
       <div>
         <BubbleMenu />
-        <StyledCompanyProfilePage>
+        <StyledMainPage>
           {/* <CompanyProfile />
           <CompanyProfile /> */}
           <div id='main_page'></div>
-        </StyledCompanyProfilePage>
+        </StyledMainPage>
       </div>
     );
   }

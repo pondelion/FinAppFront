@@ -82,6 +82,7 @@ const styles = {
   },
   bmMenuWrap: {
     position: 'fixed',
+    top: '0px',
     height: '100%'
   },
   bmMenu: {
@@ -117,8 +118,8 @@ export class BubbleMenu extends React.Component<Props> {
           styles={styles}
           onStateChange={this.onStateChange}
         >
-          <a id='company_list' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyList/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>Company List</a>
-          <a id='company_profile' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyProfile/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>Company Profile</a>
+          <a id='company_list' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyList/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>1.Company List</a>
+          <a id='company_profile' className="menu-item" href="/#" onClick={e => {ReactDOM.render(<Provider store={store}><CompanyProfile/></Provider>, document.getElementById('main_page')); e.preventDefault();}}>2.Company Profile</a>
         </BurgerMenu>
       </div>
     )

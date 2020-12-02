@@ -8,9 +8,8 @@ export const StyledChart = styled.div`
   width: 50%;
 `
 
-export const StyledCompanyProfilePage = styled.div`
-  margin: 10px auto;
-  top: 10px;
-  width: 80%;
+export const StyledMainPage = styled.div`
+  margin: 40px auto;
+  width: 70%;
   background: #eeeeee;
 `
