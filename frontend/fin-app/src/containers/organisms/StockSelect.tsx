@@ -1,22 +1,22 @@
 import React from 'react'
 import { Select, SelectHandler } from '../../components/atoms/Select'
 import { APIClient } from '../../utils/APIClient'
-import { Stock } from '../../types/Stock'
+import { CompanyBasicData } from '../../types/Company'
 
 
 export interface StockSelectProps {}
 
 type Props = StockSelectProps & SelectHandler
 
-const getStockList = (): Stock[] => {
-  const stockList: Stock[] = APIClient.getStockList() 
+const getCompanyList = (): CompanyBasicData[] => {
+  const stockList: CompanyBasicData[] = APIClient.getCompanyList() 
   return stockList
 }
 
 // export const StockSelect: React.FC<Props> = props => {
 //   return (
 //     <div>
-//       <Select items={ getStockList().map(v => v.company_name) }/>
+//       <Select items={ getCompanyList().map(v => v.company_name) }/>
 //     </div>
 //   )
 // }
@@ -26,7 +26,7 @@ export class StockSelect extends React.Component<Props> {
     return (
       <div>
         <Select
-          items={ getStockList().map(v => v.company_name) }
+          items={ getCompanyList().map(v => v.company_name) }
           onChange={ this.props.onChange }  
         />
       </div>

@@ -65,7 +65,7 @@ const styles = {
     width: '36px',
     height: '30px',
     left: '36px',
-    top: '36px'
+    top: '56px'
   },
   bmBurgerBars: {
     background: '#373a47'
@@ -87,8 +87,8 @@ const styles = {
   },
   bmMenu: {
     background: '#373a47',
-    padding: '0.5em 1.5em 0',
-    fontSize: '1.5em'
+    padding: '0.5em 1.2em 0',
+    fontSize: '1.4em'
   },
   bmMorphShape: {
     fill: '#373a47'

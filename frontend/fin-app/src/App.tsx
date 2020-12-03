@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 //import CompanyProfile from './containers/pages/CompanyProfile'
 import { BubbleMenu } from './containers/organisms/Menu'
+import Header from './containers/organisms/Header'
 //import { StockSelect } from './containers/organisms/StockSelect'
 import { StyledMainPage } from './styles/Styles'
 
@@ -26,6 +27,7 @@ class App extends React.Component {
     return(
       <div>
         <BubbleMenu />
+        <Header />
         <StyledMainPage>
           {/* <CompanyProfile />
           <CompanyProfile /> */}

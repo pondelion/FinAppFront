@@ -13,3 +13,7 @@ export const StyledMainPage = styled.div`
   width: 70%;
   background: #eeeeee;
 `
+
+export const StyledHeader = styled.div`
+  color: #FFFCE1;
+`

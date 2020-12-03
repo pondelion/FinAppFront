@@ -1,12 +1,13 @@
-import { Stock, StockPriceData, Sector } from '../types/Stock'
+import { CompanyBasicData, Sector } from '../types/Company'
+import { StockPriceData } from '../types/Stock'
 
 
-export type StockList = Stock[]
+export type CompanyList = CompanyBasicData[]
 
 
 export class APIClient {
 
-  static getStockList(): StockList {
+  static getCompanyList(): CompanyList {
     // TODO : get data from backend server.
     const dummyData = [
       {
