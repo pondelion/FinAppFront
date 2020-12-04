@@ -5,6 +5,7 @@ import { Dispatch } from "redux";
 import { SearchBar } from '../../components/atoms/SearchBar'
 import { StockListTab } from '../organisms/StockListTab'
 import { State } from '../../redux/states/State'
+import { StyledStockListTab } from '../../styles/Styles'
 //import { CompanyProfileActions } from '../../redux/actions/CompanyProfileActions'
 
 
@@ -28,7 +29,9 @@ class CompanyList extends React.Component<Props> {
           onRequestSearch={ this.props.handleOnSearch }
           placeholder={ '企業名' }
         />
-        <StockListTab />
+        <StyledStockListTab>
+          <StockListTab />
+        </StyledStockListTab>
       </div>
     )
   }

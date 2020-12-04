@@ -14,6 +14,7 @@ export const StyledMainPage = styled.div`
   background: #eeeeee;
 `
 
-export const StyledHeader = styled.div`
-  color: #FFFCE1;
+export const StyledStockListTab = styled.div`
+  margin: 10px auto;
+  width: 98%;
 `
