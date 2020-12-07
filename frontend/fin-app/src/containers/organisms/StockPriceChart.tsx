@@ -1,26 +1,16 @@
 import React from 'react'
 import { 
-  ScatterChart,
+  TimeseriesChart,
   Points
-} from '../../components/atoms/chart/Scatter'
+} from '../../components/atoms/chart/chartjs/Timeseries'
 import { APIClient } from '../../utils/APIClient'
 import { StockPriceData } from '../../types/Stock'
-import { StyledChart } from '../../styles/Styles'
+import { StyledStockPriceChart } from '../../styles/Styles'
 
 
 export interface Props {
   ticker: number
 }
-
-
-const getStockPriceData = (ticker: number): Points => {
-  const stockPriceData: StockPriceData = APIClient.getStockPriceData(ticker) 
-  const formattedData: Points = stockPriceData.stock_price.map(
-      (price, idx) => { return {'x': idx, 'y': price} }
-  )
-  return formattedData
-}
-
 
 // export const StockPriceChart: React.FC<Props> = props => {
 //   return (
@@ -31,12 +21,42 @@ const getStockPriceData = (ticker: number): Points => {
 // }
 export class StockPriceChart extends React.Component<Props> {
 
+  private stockPriceData: Points = []
+
+  constructor(props: Props) {
+    super(props);
+
+    this.getStockPriceData(this.props.ticker)
+  }
+
+  getStockPriceData(ticker: number): void {
+    APIClient.getStockPriceData(
+      ticker,
+      (dates: string[], stockPrices: number[]): void => {
+        let formattedData: Points = []
+        for (let i=0; i < dates.length; i++) {
+          formattedData.push({
+            x: new Date(dates[i]),
+            y: stockPrices[i]
+          })
+        }
+        this.stockPriceData = formattedData
+        console.log(this.stockPriceData)
+        this.forceUpdate()
+      },
+      2020
+    ) 
+  }
+
   render() {
     return (
       <div>
-        <StyledChart>
-          <ScatterChart points={ getStockPriceData(this.props.ticker) } />
-        </StyledChart>
+        <StyledStockPriceChart>
+          <TimeseriesChart
+            points={ this.stockPriceData } 
+            label={ `${this.props.ticker} stock price` }
+          />
+        </StyledStockPriceChart>
       </div>
     )
   }

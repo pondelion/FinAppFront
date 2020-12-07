@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 
-export const StyledChart = styled.div`
+export const StyledStockPriceChart = styled.div`
   position: relative;
   top: 10px;
   left: 10px;
-  width: 50%;
+  width: 90%;
 `
 
 export const StyledMainPage = styled.div`

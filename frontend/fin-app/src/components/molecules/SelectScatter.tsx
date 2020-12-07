@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-import { ScatterChart, Props as ScatterProps } from '../atoms/chart/Scatter'
+import { ScatterChart, Props as ScatterProps } from '../atoms/chart/chartjs/Scatter'
 import { SelectProps } from '../atoms/Select'
 
 

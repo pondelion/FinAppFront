@@ -1,5 +1,8 @@
+import axios from 'axios'
 import { CompanyBasicData, Sector } from '../types/Company'
 import { StockPriceData } from '../types/Stock'
+import { config } from '../config/Config'
+import { SingleBedSharp } from '@material-ui/icons'
 
 
 export type CompanyList = CompanyBasicData[]
@@ -34,43 +37,67 @@ export class APIClient {
     return dummyData
   }
 
-  static getStockPriceData(ticker: number): StockPriceData {
+  static getStockPriceData(
+    ticker: number,
+    callback: (dates: string[], stockPrices: number[]) => void,
+    year?: number,
+  ): void {
     // TODO : get data from backend server.
-    const dummyData: any = {
-      7203: {
-        'datetime': [
-          '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15'
-        ],
-        'stock_price': [
-          1000, 1050, 1100, 900, 1400
-        ]
-      },
-      8058: {
-        'datetime': [
-          '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15'
-        ],
-        'stock_price': [
-          2000, 1400, 2100, 2198, 1232
-        ]
-      },
-      7267: {
-        'datetime': [
-          '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15'
-        ],
-        'stock_price': [
-          3210, 3212, 100, 2100, 400
-        ]
-      },
-      9432: {
-        'datetime': [
-          '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15'
-        ],
-        'stock_price': [
-          4000, 1050, 2900, 3300, 1400
-        ]
-      },
+    // const dummyData: any = {
+    //   7203: {
+    //     'datetime': [
+    //       '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-20'
+    //     ],
+    //     'stock_price': [
+    //       1000, 1050, 1100, 900, 1400
+    //     ]
+    //   },
+    //   8058: {
+    //     'datetime': [
+    //       '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-20'
+    //     ],
+    //     'stock_price': [
+    //       2000, 1400, 2100, 2198, 1232
+    //     ]
+    //   },
+    //   7267: {
+    //     'datetime': [
+    //       '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-20'
+    //     ],
+    //     'stock_price': [
+    //       3210, 3212, 100, 2100, 400
+    //     ]
+    //   },
+    //   9432: {
+    //     'datetime': [
+    //       '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-20'
+    //     ],
+    //     'stock_price': [
+    //       4000, 1050, 2900, 3300, 1400
+    //     ]
+    //   },
+    // }
+    // return dummyData[ticker]
+
+    let params: string = ''
+    if (year !== undefined) {
+      params = `?year=${year}`
     }
-    return dummyData[ticker]
+
+    const url = `http://${config.server}:${config.server_port}/stock_price/${ticker}${params}`
+    console.log(url)
+
+    axios.get(url).then((results) => {
+      console.log(typeof results.data)
+      // const data = JSON.parse(results.data.replace(/\bNaN\b/g, "null"))
+      const data = results.data
+      const stockPrices = data['stock_price'].map((v: any) => v['終値'])
+      const dates = data['stock_price'].map((v: any) => v['日付'])
+      callback(dates, stockPrices)
+    }).catch((e) => {
+      console.log(e.message)
+    })
+
   }
 
   static getSectorList(): string[] {
