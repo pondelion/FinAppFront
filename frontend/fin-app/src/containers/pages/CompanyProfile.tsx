@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from "redux";
 import { StockPriceChart } from '../organisms/StockPriceChart'
 import { StockSelect } from '../organisms/StockSelect'
+import { CompanyBasicDataTable } from '../organisms/CompanyBasicDataTable'
 import { State } from '../../redux/states/State'
 //import { CompanyProfileActions } from '../../redux/actions/CompanyProfileActions'
 
@@ -27,6 +28,7 @@ class CompanyProfile extends React.Component<Props> {
       <div>
         <StockSelect onChange={ this.props.handleOnSelectStock }/>
         <StockPriceChart ticker={ this.props.ticker } />
+        <CompanyBasicDataTable ticker={ this.props.ticker } />
       </div>
     )
   }

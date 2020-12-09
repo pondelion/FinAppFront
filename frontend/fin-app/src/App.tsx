@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-//import CompanyProfile from './containers/pages/CompanyProfile'
 import { BubbleMenu } from './containers/organisms/Menu'
 import Header from './containers/organisms/Header'
 //import { StockSelect } from './containers/organisms/StockSelect'

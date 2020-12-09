@@ -4,7 +4,7 @@ import {
   Points
 } from '../../components/atoms/chart/chartjs/Timeseries'
 import { APIClient } from '../../utils/APIClient'
-import { StockPriceData } from '../../types/Stock'
+//import { StockPriceData } from '../../types/Stock'
 import { StyledStockPriceChart } from '../../styles/Styles'
 
 

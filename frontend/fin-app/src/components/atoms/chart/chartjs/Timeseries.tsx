@@ -3,7 +3,7 @@ import { Scatter } from 'react-chartjs-2';
 
 
 interface Point {
-  x: Date | string
+  x: Date
   y: number
 }
 
@@ -16,7 +16,6 @@ export interface Props {
 
 const scatterData = (points: Points, label: string) => {
   return {
-    // labels: ['1', '1','1','1','1'],
     datasets: [
       {
         label: label,

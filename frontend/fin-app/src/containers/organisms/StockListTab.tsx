@@ -4,6 +4,7 @@ import Tab from '@material-ui/core/Tab'
 import TabPanel from '@material-ui/lab/TabPanel'
 import TabContext from '@material-ui/lab/TabContext'
 import TabList from '@material-ui/lab/TabList'
+import { CompanyListTable } from './CompanyListTable'
 import { APIClient } from '../../utils/APIClient'
 
 
@@ -43,7 +44,13 @@ export class StockListTab extends React.Component<Props, {val: string}> {
             { APIClient.getSectorList().map((sec, idx) => <Tab label={sec} value={`${idx+1}`} />)}
             </TabList>
           </AppBar>
-        { APIClient.getSectorList().map((sec, idx) => <TabPanel value={`${idx+1}`}>{sec}</TabPanel>)}
+          { 
+            APIClient.getSectorList().map((sec, idx) => 
+              <TabPanel value={`${idx+1}`}>
+                <CompanyListTable sector={sec}/>
+              </TabPanel>
+            )
+          }
         </TabContext>
       </div>
     )

@@ -11,6 +11,7 @@ export const StyledStockPriceChart = styled.div`
 export const StyledMainPage = styled.div`
   margin: 40px auto;
   width: 70%;
+  height: 900px;
   background: #eeeeee;
 `
 

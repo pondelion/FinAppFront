@@ -1,6 +1,6 @@
 
 export type CompanyBasicData = {
-  company_name: string,   // 企業名
+  companyName: string,   // 企業名
   ticker: number,         // 証券コード
   sector: Sector,         // 業種
   address?: string,       // 住所
